@@ -18,10 +18,14 @@ To Start the RabbitMQ server:
 sbin/rabbitmq-server
 ```
 
+To check the server status:
+```
+sbin/rabbitmq-ctl status
+```
+
 Concepts:
 
 Producers create msgs and publish to an exchange (which gets routed to a queueu).
-
 ```
 1. Establish a connection.
 2. Open a channel.
@@ -31,7 +35,6 @@ Producers create msgs and publish to an exchange (which gets routed to a queueu)
 ```
 
 Consumers subscribe to a queue and recv msgs.
-
 ```
 1. Establish a connection.
 2. Open a channel.
@@ -40,4 +43,7 @@ Consumers subscribe to a queue and recv msgs.
 5. Bind the queue to the exchange with the routine_key.
 6. Consume the msg(s).
 ```
+
+There are 4 types of exchanges: direct, fanout, topic, and headers (stay away from due to performance).
+
 
