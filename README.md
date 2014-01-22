@@ -46,4 +46,7 @@ Consumers subscribe to a queue and recv msgs.
 
 There are 4 types of exchanges: direct, fanout, topic, and headers (stay away from due to performance).
 
+By default, queues and exchanges are not persistent.  You must set the "durable" flag to True for them to be persistent AND set the "delivery mode" to 2 (Need to see what this constant really means or is aliased to).  But persistent exchanges/queues have a performance hit.
+
+
 
