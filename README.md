@@ -55,3 +55,13 @@ Instead of persistent exchanges/queues, the Producer should use "confirms" to gu
 channel.confirm_delivery()  #to put the channel in confirm mode
 ```
 
+
+
+
+
+References
+==========
+http://www.rabbitmq.com/install-standalone-mac.html
+
+https://github.com/rabbitinaction/sourcecode
+
