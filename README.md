@@ -48,5 +48,10 @@ There are 4 types of exchanges: direct, fanout, topic, and headers (stay away fr
 
 By default, queues and exchanges are not persistent.  You must set the "durable" flag to True for them to be persistent AND set the "delivery mode" to 2 (Need to see what this constant really means or is aliased to).  But persistent exchanges/queues have a performance hit.
 
+When you publish msgs to an exchange, each msg on the channel gets a unique id.  IDs start with 1.  The Producer must keep track of the numbers as they are NOT returned with the basic_publish command.
 
+Instead of persistent exchanges/queues, the Producer should use "confirms" to guarantee delivery.
+```
+channel.confirm_delivery()  #to put the channel in confirm mode
+```
 
