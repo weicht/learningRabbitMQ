@@ -50,7 +50,7 @@ By default, queues and exchanges are not persistent.  You must set the "durable"
 
 When you publish msgs to an exchange, each msg on the channel gets a unique id.  IDs start with 1.  The Producer must keep track of the numbers as they are NOT returned with the basic_publish command.
 
-Instead of persistent exchanges/queues, the Producer should use "confirms" to guarantee delivery.
+Instead of persistent exchanges/queues, the Producer should use "confirms" to guarantee delivery to RabbitMQ.
 ```
 channel.confirm_delivery()  #to put the channel in confirm mode
 ```
