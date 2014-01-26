@@ -6,21 +6,39 @@ I'm using RabbitMQ In Action to learn RabbitMQ:
 http://manning.com/videla/
 ```
 
-Download RabbitMQ:
+Download RabbitMQ and unzip it:
 ```
 http://www.rabbitmq.com/install-standalone-mac.html
 ```  
 
-Copy/move to wherever you want it to be installed.
+I put the rabbitmq_server-3.2.2 folder in my /Applications folder.
 
-To Start the RabbitMQ server:
+Then symlink all the /Applications/rabbitmq_server-3.2.2/sbin/rabbit* executables into /usr/local/sbin/ (remember to sudo the ln -s commands)
+
+Note: I chose /usr/local/sbin only because when I had previously tried installing RabbitMQ with homebrew, it put v3.2.1 in there.  So, I had to move that version out of the way and I decided to put the latest there as well.
 ```
-sbin/rabbitmq-server
+lrwxr-xr-x  1 root         admin   58 Jan 25 19:15 rabbitmq-defaults@ -> /Applications/rabbitmq_server-3.2.2/sbin/rabbitmq-defaults
+lrwxr-xr-x  1 root         admin   53 Jan 25 19:15 rabbitmq-env@ -> /Applications/rabbitmq_server-3.2.2/sbin/rabbitmq-env
+lrwxr-xr-x  1 root         admin   57 Jan 25 19:16 rabbitmq-plugins@ -> /Applications/rabbitmq_server-3.2.2/sbin/rabbitmq-plugins
+lrwxr-xr-x  1 root         admin   56 Jan 25 19:15 rabbitmq-server@ -> /Applications/rabbitmq_server-3.2.2/sbin/rabbitmq-server
+lrwxr-xr-x  1 root         admin   54 Jan 25 19:17 rabbitmqadmin@ -> /Applications/rabbitmq_server-3.2.2/sbin/rabbitmqadmin
+lrwxr-xr-x  1 root         admin   52 Jan 25 19:17 rabbitmqctl@ -> /Applications/rabbitmq_server-3.2.2/sbin/rabbitmqctl
 ```
 
-To check the server status:
+Next I added /usr/local/sbin to my PATH within .bash_profile
 ```
-sbin/rabbitmq-ctl status
+PATH="./:/usr/local/bin:/usr/local/sbin:${PATH}"
+export PATH
+```
+
+To Start the RabbitMQ server (should be in PATH):
+```
+rabbitmq-server
+```
+
+To check the server status (should be in PATH):
+```
+rabbitmq-ctl status
 ```
 
 Concepts:
